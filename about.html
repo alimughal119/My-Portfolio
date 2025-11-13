@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Ali Tawassul</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">Ali Tawassul</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html" class="active">About</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="service.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <button id="theme-toggle" class="theme-btn">🌙 Dark Mode</button>
+    </nav>
+
+    <!-- ABOUT MAIN SECTION -->
+    <section class="about">
+
+        <div class="about-left">
+            <img src="assets\image\alipic.jpg" alt="Ali Tawassul">
+        </div>
+
+        <div class="about-right">
+            <h1>About Me</h1>
+            <p>
+                I’m Ali Tawassul — a passionate Computer Science student and freelancer
+                dedicated to designing modern digital experiences. I specialize in
+                Java development, web development, video editing, and graphic design.
+                With a strong focus on clean design and problem-solving, I enjoy
+                creating meaningful and impactful projects.
+            </p>
+
+            <a href="assets\cv\Ali's CV.pdf" class="btn-primary" download>Download CV</a>
+        </div>
+
+    </section>
+
+    <!-- EDUCATION SECTION -->
+    <section class="edu">
+        <h2>Education</h2>
+
+        <div class="edu-cards">
+
+            <div class="edu-card">
+                <h3>Sukkur IBA University</h3>
+                <p>Bachelors in Computer Science (2023 - 2027)</p>
+            </div>
+
+            <div class="edu-card">
+                <h3>Army Public College</h3>
+                <p>Intermediate (2021 - 2022)</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ACHIEVEMENTS SECTION -->
+    <section class="achievements">
+        <h2>Achievements</h2>
+
+        <div class="ach-card">
+            <h4>Java Chess Application (2024)</h4>
+            <p>Co-developed a GUI-based chess game in Java implementing standard
+                and advanced rules with real-time move validation and a smooth user interface.</p>
+        </div>
+
+        <div class="ach-card">
+            <h4>University Photography Club (2024–Present)</h4>
+            <p>Active member contributing high-quality content for various university events
+                and enhancing the club’s visual portfolio.</p>
+        </div>
+
+        <div class="ach-card">
+            <h4>Inspire Me Website (2025)</h4>
+            <p>Developed a motivational platform using HTML, CSS, and JavaScript
+                featuring dynamic quotes and responsive UI.</p>
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        © 2025 Ali Tawassul — All Rights Reserved
+    </footer>
+
+
+    <script>
+        const toggleBtn = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        // Change theme on click
+        toggleBtn.addEventListener('click', () => {
+            const darkModeEnabled = body.classList.toggle('dark-mode');
+
+            if (darkModeEnabled) {
+                toggleBtn.innerHTML = '☀️ Light Mode';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                toggleBtn.innerHTML = '🌙 Dark Mode';
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // Load saved theme from localStorage
+        window.onload = () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                body.classList.add('dark-mode');
+                toggleBtn.innerHTML = '☀️ Light Mode';
+            } else {
+                toggleBtn.innerHTML = '🌙 Dark Mode';
+            }
+        };
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess Application - Project Details</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">Ali Tawassul</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html" class="active">Projects</a></li>
+        </ul>
+        <button id="theme-toggle" class="theme-btn">🌙 Dark Mode</button>
+
+    </nav>
+
+    <!-- PROJECT HEADER -->
+    <section class="project-details-header">
+        <h1>Java Chess Application</h1>
+        <p>A complete chess game built using Java, OOP, and GUI components.</p>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <section class="project-details">
+
+        <div class="project-screenshots">
+
+            <div class="project-showcase">
+                <img src="assets\image\chesshome.JPG" alt="Register Player UI">
+                <p class="img-caption">Player Registration Screen</p>
+            </div>
+
+            <div class="project-showcase">
+                <img src="assets\image\chess.JPG" alt="Chess Board UI">
+                <p class="img-caption">Chess Game Interface</p>
+            </div>
+
+            <div class="project-showcase">
+                <img src="assets\image\chesswin.JPG" alt="Winner Screen">
+                <p class="img-caption">Winner Announcement Screen</p>
+            </div>
+
+        </div>
+
+
+        <h2>Description</h2>
+        <p>
+            This Java Chess Application is a fully functional chess game implementing
+            standard rules such as check, checkmate, piece movements, and advanced
+            features like castling, en passant, and pawn promotion. Created using
+            Java Swing components and Object-Oriented Programming principles.
+        </p>
+
+        <h2>Features</h2>
+        <ul>
+            <li>✔ GUI-based board using Java Swing</li>
+            <li>✔ Real-time move validation</li>
+            <li>✔ Advanced moves: castling, promotion, en passant</li>
+            <li>✔ Player turn logic</li>
+            <li>✔ Clean and intuitive interface</li>
+        </ul>
+
+        <h2>Tools & Technologies</h2>
+        <ul>
+            <li>Java (OOP)</li>
+            <li>Java Swing</li>
+            <li>NetBeans / IntelliJ</li>
+        </ul>
+
+        <a href="projects.html" class="btn-primary" style="margin-top:20px;">Back to Projects</a>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        © 2025 Ali Tawassul — All Rights Reserved
+    </footer>
+
+    <script>
+        const toggleBtn = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        // Change theme on click
+        toggleBtn.addEventListener('click', () => {
+            const darkModeEnabled = body.classList.toggle('dark-mode');
+
+            if (darkModeEnabled) {
+                toggleBtn.innerHTML = '☀️ Light Mode';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                toggleBtn.innerHTML = '🌙 Dark Mode';
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // Load saved theme from localStorage
+        window.onload = () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                body.classList.add('dark-mode');
+                toggleBtn.innerHTML = '☀️ Light Mode';
+            } else {
+                toggleBtn.innerHTML = '🌙 Dark Mode';
+            }
+        };
+    </script>
+
+
+</body>
+
+</html>

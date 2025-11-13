@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Ali Tawassul</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">Ali Tawassul</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="service.html">Services</a></li>
+            <li><a href="projects.html" class="active">Projects</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <button id="theme-toggle" class="theme-btn">🌙 Dark Mode</button>
+
+    </nav>
+
+    <!-- HEADER -->
+    <section class="projects-header">
+        <h1>My Projects</h1>
+        <p>Some of the work I’ve done with passion and creativity.</p>
+    </section>
+
+    <!-- PROJECTS GRID -->
+    <section class="projects-grid">
+
+        <div class="project-card">
+            <img src="assets\image\chess.JPG" Chess Application">
+            <h3>Java Chess Application</h3>
+            <p>GUI-based chess game implementing standard and advanced rules with real-time validation.</p>
+            <a href="chess.html" class="btn-outline">View Details</a>
+        </div>
+
+        <div class="project-card">
+            <img src="assets\image\Inspire me .png" alt="Inspire Me Website">
+            <h3>Inspire Me Website</h3>
+            <p>Motivational website built with HTML, CSS, JS featuring dynamic quotes and a clean UI.</p>
+            <a href="inspireme.html" class="btn-outline">View Details</a>
+        </div>
+
+        <div class="project-card">
+            <img src="assets\image\portfoliohome.png" alt="Portfolio Website">
+            <h3>Personal Portfolio</h3>
+            <p>Modern, responsive portfolio website designed to showcase my skills, services, and projects.</p>
+            <a href="portfolio.html" class="btn-outline">View Details</a>
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        © 2025 Ali Tawassul — All Rights Reserved
+    </footer>
+
+
+    <script>
+        const toggleBtn = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        // Change theme on click
+        toggleBtn.addEventListener('click', () => {
+            const darkModeEnabled = body.classList.toggle('dark-mode');
+
+            if (darkModeEnabled) {
+                toggleBtn.innerHTML = '☀️ Light Mode';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                toggleBtn.innerHTML = '🌙 Dark Mode';
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // Load saved theme from localStorage
+        window.onload = () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                body.classList.add('dark-mode');
+                toggleBtn.innerHTML = '☀️ Light Mode';
+            } else {
+                toggleBtn.innerHTML = '🌙 Dark Mode';
+            }
+        };
+    </script>
+
+</body>
+
+</html>

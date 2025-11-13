@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess Application - Project Details</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">Ali Tawassul</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html" class="active">Projects</a></li>
+        </ul>
+        <button id="theme-toggle" class="theme-btn">🌙 Dark Mode</button>
+
+    </nav>
+
+    <!-- PROJECT HEADER -->
+    <section class="project-details">
+
+        <h1 class="project-title">Personal Portfolio Website</h1>
+        <p class="project-subtitle">A modern multi-page portfolio built with HTML, CSS, and JavaScript.</p>
+
+        <!-- Screenshots -->
+        <div class="project-screenshots">
+            <div class="project-showcase">
+                <img src="assets\image\portfoliohome.png" alt="Portfolio Home Screenshot">
+                <p class="img-caption">Home Page UI</p>
+            </div>
+
+            <div class="project-showcase">
+                <img src="assets\image\skillssection.png" alt="Portfolio Projects Page Screenshot">
+                <p class="img-caption">Skills Section</p>
+            </div>
+
+            <div class="project-showcase">
+                <img src="assets\image\contact.png" alt="Portfolio Detail Page Screenshot">
+                <p class="img-caption">Contact Page</p>
+            </div>
+        </div>
+
+        <h2>Description</h2>
+        <p>
+            This personal portfolio website is designed to showcase my skills, services, and projects in a
+            professional and visually appealing way. The website includes multiple pages, a responsive layout,
+            smooth UI components, and a clean navigation system.
+            It highlights my frontend development skills and my ability to design structured, user-friendly websites.
+        </p>
+
+        <h2>Features</h2>
+        <ul>
+            <li>✔ Fully responsive multi-page layout</li>
+            <li>✔ Professional UI with modern color theme</li>
+            <li>✔ Projects showcase with detailed pages</li>
+            <li>✔ Clean navigation bar and smooth page structure</li>
+            <li>✔ Built completely from scratch</li>
+        </ul>
+
+        <h2>Tools & Technologies</h2>
+        <ul>
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+            <li>VS Code</li>
+        </ul>
+
+        <a href="projects.html" class="btn-primary">Back to Projects</a>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+        © 2025 Ali Tawassul — All Rights Reserved
+    </footer>
+
+    <script>
+        const toggleBtn = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        // Change theme on click
+        toggleBtn.addEventListener('click', () => {
+            const darkModeEnabled = body.classList.toggle('dark-mode');
+
+            if (darkModeEnabled) {
+                toggleBtn.innerHTML = '☀️ Light Mode';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                toggleBtn.innerHTML = '🌙 Dark Mode';
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // Load saved theme from localStorage
+        window.onload = () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                body.classList.add('dark-mode');
+                toggleBtn.innerHTML = '☀️ Light Mode';
+            } else {
+                toggleBtn.innerHTML = '🌙 Dark Mode';
+            }
+        };
+    </script>
+
+</body>
+
+</html>

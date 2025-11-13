@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ali Tawassul - Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">Ali Tawassul</div>
+        <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="service.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+
+        </ul>
+        <button id="theme-toggle" class="theme-btn">🌙 Dark Mode</button>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Hi, I'm <span class="blue">Ali Tawassul</span></h1>
+            <h2>Freelancer • Designer • Developer</h2>
+            <p>
+                I create clean, modern, and impactf ul digital experiences — from web design
+                to video editing and development. Welcome to my portfolio.
+            </p>
+
+            <div class="buttons">
+                <a href="hireme.html" class="btn-primary">Hire Me</a>
+                <a href="projects.html" class="btn-outline">View Projects</a>
+            </div>
+        </div>
+
+        <div class="hero-img">
+            <img src="assets\image\alipic.jpg" alt="Ali Tawassul">
+        </div>
+    </section>
+
+    <!-- QUICK SERVICES PREVIEW -->
+    <section class="services-preview">
+        <h3>What I Do</h3>
+        <div class="cards">
+
+            <div class="card">
+                <h4>Web Development</h4>
+                <p>Responsive and modern websites using HTML, CSS, and JavaScript.</p>
+            </div>
+
+            <div class="card">
+                <h4>Graphic Design</h4>
+                <p>Logos, banners, branding, and visually appealing layouts.</p>
+            </div>
+
+            <div class="card">
+                <h4>Video Editing</h4>
+                <p>Clean, smooth edits for reels, short videos, and content creators.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        © 2025 Ali Tawassul — All Rights Reserved
+    </footer>
+
+
+    <script>
+        const toggleBtn = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        // Change theme on click
+        toggleBtn.addEventListener('click', () => {
+            const darkModeEnabled = body.classList.toggle('dark-mode');
+
+            if (darkModeEnabled) {
+                toggleBtn.innerHTML = '☀️ Light Mode';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                toggleBtn.innerHTML = '🌙 Dark Mode';
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // Load saved theme from localStorage
+        window.onload = () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                body.classList.add('dark-mode');
+                toggleBtn.innerHTML = '☀️ Light Mode';
+            } else {
+                toggleBtn.innerHTML = '🌙 Dark Mode';
+            }
+        };
+    </script>
+
+
+
+</body>
+
+</html>

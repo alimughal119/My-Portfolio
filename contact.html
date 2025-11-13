@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Ali Tawassul</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">Ali Tawassul</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="service.html">Services</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+        <button id="theme-toggle" class="theme-btn">🌙 Dark Mode</button>
+
+    </nav>
+
+    <!-- CONTACT HEADER -->
+    <section class="contact-header">
+        <h1>Contact Me</h1>
+        <p>Feel free to reach out for projects, collaborations, or inquiries.</p>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact-section">
+
+        <!-- LEFT SIDE INFO -->
+        <div class="contact-info">
+            <h2>Let's Talk</h2>
+            <p>If you have any questions or want to work together, you can contact me through the form or the details
+                below.</p>
+
+            <div class="info-item">
+                <strong>Email:</strong> alitawassul134@gmail.com
+            </div>
+
+            <div class="info-item">
+                <strong>Phone:</strong> 0315-1666326
+            </div>
+
+            <div class="info-item">
+                <strong>Location:</strong> Sukkur, Sindh, Pakistan
+            </div>
+
+            <div class="social-links">
+                <a href="https://www.instagram.com/the_atm.visuals_?igsh=YWltY2d4NXdrN2h3" target="_blank">Instagram</a>
+                <a href="https://www.fiverr.com/s/qDpo33X" target="_blank">Fiverr</a>
+                <a href="https://www.linkedin.com/in/ali-tawassul-aa8460329?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+                    target="_blank">LinkedIn</a>
+            </div>
+        </div>
+
+        <!-- RIGHT SIDE FORM -->
+        <div class="contact-form">
+            <form action="https://formspree.io/f/xvgdgadnx" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+
+                <!-- Optional: Add hidden redirect after submit -->
+                <input type="hidden" name="_next" value="thankyou.html">
+
+                <button type="submit" class="btn-primary">Send Message</button>
+            </form>
+
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        © 2025 Ali Tawassul — All Rights Reserved
+    </footer>
+
+
+    <script>
+        const toggleBtn = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        // Change theme on click
+        toggleBtn.addEventListener('click', () => {
+            const darkModeEnabled = body.classList.toggle('dark-mode');
+
+            if (darkModeEnabled) {
+                toggleBtn.innerHTML = '☀️ Light Mode';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                toggleBtn.innerHTML = '🌙 Dark Mode';
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // Load saved theme from localStorage
+        window.onload = () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                body.classList.add('dark-mode');
+                toggleBtn.innerHTML = '☀️ Light Mode';
+            } else {
+                toggleBtn.innerHTML = '🌙 Dark Mode';
+            }
+        };
+
+        function showLoader() {
+            alert("📤 Sending your message, please wait...");
+            return true;
+        }
+    </script>
+
+
+</body>
+
+</html>

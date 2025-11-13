@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Ali Tawassul</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">Ali Tawassul</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="service.html" class="active">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <button id="theme-toggle" class="theme-btn">🌙 Dark Mode</button>
+
+    </nav>
+
+    <!-- SERVICES HEADER -->
+    <section class="services-header">
+        <h1>My Services</h1>
+        <p>Here’s what I can help you with — clean, creative, and professional results.</p>
+    </section>
+
+    <!-- SERVICES CARDS -->
+    <section class="services-container">
+
+        <div class="service-card">
+            <h3>Web Development</h3>
+            <p>I build clean, responsive, and modern websites using HTML, CSS, and JavaScript.</p>
+            <a href="hireme.html" class="btn-primary">Hire Me</a>
+        </div>
+
+        <div class="service-card">
+            <h3>Portfolio Websites</h3>
+            <p>Personal portfolio sites that are professional, attractive, and client-ready.</p>
+            <a href="hireme.html" class="btn-primary">Hire Me</a>
+        </div>
+
+        <div class="service-card">
+            <h3>Graphic Design</h3>
+            <p>Logos, posters, banners, thumbnails, and clean visual branding elements.</p>
+            <a href="hireme.html" class="btn-primary">Hire Me</a>
+        </div>
+
+        <div class="service-card">
+            <h3>Video Editing</h3>
+            <p>Smooth, engaging edits for reels, short videos, vlogs, and promotional content.</p>
+            <a href="hireme.html" class="btn-primary">Hire Me</a>
+        </div>
+
+        <div class="service-card">
+            <h3>Photo Editing</h3>
+            <p>Color correction, retouching, enhancement, and creative editing for photos.</p>
+            <a href="hireme.html" class="btn-primary">Hire Me</a>
+        </div>
+
+        <div class="service-card">
+            <h3>Branding Content</h3>
+            <p>Clean branded visuals for social media, businesses, and personal brands.</p>
+            <a href="hireme.html" class="btn-primary">Hire Me</a>
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        © 2025 Ali Tawassul — All Rights Reserved
+    </footer>
+
+
+
+    <script>
+        const toggleBtn = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        // Change theme on click
+        toggleBtn.addEventListener('click', () => {
+            const darkModeEnabled = body.classList.toggle('dark-mode');
+
+            if (darkModeEnabled) {
+                toggleBtn.innerHTML = '☀️ Light Mode';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                toggleBtn.innerHTML = '🌙 Dark Mode';
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // Load saved theme from localStorage
+        window.onload = () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                body.classList.add('dark-mode');
+                toggleBtn.innerHTML = '☀️ Light Mode';
+            } else {
+                toggleBtn.innerHTML = '🌙 Dark Mode';
+            }
+        };
+    </script>
+
+
+</body>
+
+</html>

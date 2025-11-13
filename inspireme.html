@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inspire Me Website - Project Details</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">Ali Tawassul</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html" class="active">Projects</a></li>
+        </ul>
+        <button id="theme-toggle" class="theme-btn">🌙 Dark Mode</button>
+
+    </nav>
+
+    <!-- HEADER -->
+    <section class="project-details-header">
+        <h1>Inspire Me Website</h1>
+        <p>A motivational platform built with HTML, CSS, and JavaScript.</p>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <section class="project-details">
+        <div class="project-screenshots">
+            <div class="project-showcase">
+                <img src="assets\image\Inspire me .png" class="Inspire Me UI">
+                <p class="img-caption">Homepage UI</p>
+            </div>
+            <div class="project-showcase">
+                <img src="assets\image\img2.png" class="Dynamic Quotes">
+                <p class="img-caption">Dynamic Quotes Display</p>
+            </div>
+        </div>
+
+
+
+        <h2>Description</h2>
+        <p>
+            Inspire Me is a clean and minimal motivational website designed to help users
+            stay positive and focused. It features dynamic quotes, smooth transitions,
+            and a responsive modern layout. Built using HTML, CSS, and JavaScript.
+        </p>
+
+        <h2>Features</h2>
+        <ul>
+            <li>✔ Dynamic motivational quotes</li>
+            <li>✔ Smooth fade animations</li>
+            <li>✔ Fully responsive layout</li>
+            <li>✔ Minimal and modern UI</li>
+        </ul>
+
+        <h2>Tools & Technologies</h2>
+        <ul>
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+            <li>VS Code</li>
+        </ul>
+
+        <a href="projects.html" class="btn-primary">Back to Projects</a>
+
+    </section>
+
+    <footer>
+        © 2025 Ali Tawassul — All Rights Reserved
+    </footer>
+
+
+    <script>
+        const toggleBtn = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        // Change theme on click
+        toggleBtn.addEventListener('click', () => {
+            const darkModeEnabled = body.classList.toggle('dark-mode');
+
+            if (darkModeEnabled) {
+                toggleBtn.innerHTML = '☀️ Light Mode';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                toggleBtn.innerHTML = '🌙 Dark Mode';
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // Load saved theme from localStorage
+        window.onload = () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                body.classList.add('dark-mode');
+                toggleBtn.innerHTML = '☀️ Light Mode';
+            } else {
+                toggleBtn.innerHTML = '🌙 Dark Mode';
+            }
+        };
+    </script>
+
+</body>
+
+</html>

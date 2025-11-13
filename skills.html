@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills - Ali Tawassul</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">Ali Tawassul</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="skills.html" class="active">Skills</a></li>
+            <li><a href="service.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <button id="theme-toggle" class="theme-btn">🌙 Dark Mode</button>
+
+    </nav>
+
+    <!-- SKILLS HEADER -->
+    <section class="skills-header">
+        <h1>My Skills</h1>
+        <p>A combination of technical expertise, creativity, and problem-solving.</p>
+    </section>
+
+    <!-- SKILLS GRID -->
+    <section class="skills-grid">
+
+        <div class="skill-card">
+            <h3>HTML</h3>
+            <p>Web structure & responsive layouts</p>
+        </div>
+
+        <div class="skill-card">
+            <h3>CSS</h3>
+            <p>Modern UI design & styling</p>
+        </div>
+
+        <div class="skill-card">
+            <h3>JavaScript</h3>
+            <p>Dynamic interactions & logic</p>
+        </div>
+
+        <div class="skill-card">
+            <h3>Java</h3>
+            <p>OOP, GUI applications & logic building</p>
+        </div>
+
+        <div class="skill-card">
+            <h3>C++</h3>
+            <p>Logic building & problem solving</p>
+        </div>
+
+        <div class="skill-card">
+            <h3>Database</h3>
+            <p>MySQL, queries, relationships</p>
+        </div>
+
+        <div class="skill-card">
+            <h3>Video Editing</h3>
+            <p>Reels, cinematic edits, clean cuts</p>
+        </div>
+
+        <div class="skill-card">
+            <h3>Graphic Design</h3>
+            <p>Thumbnails, banners & brand assets</p>
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        © 2025 Ali Tawassul — All Rights Reserved
+    </footer>
+
+
+     <script>
+        const toggleBtn = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        // Change theme on click
+        toggleBtn.addEventListener('click', () => {
+            const darkModeEnabled = body.classList.toggle('dark-mode');
+
+            if (darkModeEnabled) {
+                toggleBtn.innerHTML = '☀️ Light Mode';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                toggleBtn.innerHTML = '🌙 Dark Mode';
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // Load saved theme from localStorage
+        window.onload = () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                body.classList.add('dark-mode');
+                toggleBtn.innerHTML = '☀️ Light Mode';
+            } else {
+                toggleBtn.innerHTML = '🌙 Dark Mode';
+            }
+        };
+    </script>
+
+
+</body>
+
+</html>
