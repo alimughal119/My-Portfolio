@@ -32,40 +32,248 @@ a {
 
 /* ---------- NAVBAR ---------- */
 
+/* ---------- NAVBAR (DESKTOP) ---------- */
+
 nav {
-    width: 100%;
-    background: var(--white);
-    padding: 15px 8%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 8px var(--shadow);
+    padding: 18px 7%;
+    background: var(--bg);
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
 }
 
 nav .logo {
-    font-size: 1.4rem;
     font-weight: 700;
-    color: var(--primary);
-    letter-spacing: 1px;
+    font-size: 1.2rem;
 }
 
 nav ul {
     display: flex;
     gap: 25px;
-    list-style: none;
 }
 
+
 nav ul li a {
+    color: var(--text-dark);
     font-size: 1rem;
-    font-weight: 500;
+    transition: 0.2s;
 }
 
 nav ul li a:hover {
-    color: var(--primary-dark);
+    color: var(--primary);
 }
+
+nav ul li a {
+    color: var(--text-dark);
+}
+
+body.dark-mode nav ul li a {
+    color: #f1f1f1;
+}
+
+
+/* HAMBURGER HIDDEN BY DEFAULT */
+.hamburger {
+    display: none;
+    font-size: 28px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.hamburger {
+    display: none;
+}
+
+
+/* ---------- MOBILE NAV ---------- */
+@media (max-width: 768px) {
+
+    /* show hamburger */
+    .hamburger {
+        display: block;
+    }
+}
+
+/* hide menu by default */
+/* MOBILE NAVBAR */
+@media (max-width: 768px) {
+
+    .hamburger {
+        display: block;
+        font-size: 28px;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    nav ul {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background: var(--bg-light);
+        padding-top: 100px;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        transition: right 0.3s ease-in-out;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.15);
+        z-index: 999;
+    }
+
+    body.dark-mode nav ul {
+        background: #0f1116;
+    }
+
+    nav ul.active {
+        right: 0;
+    }
+}
+
+/* Navbar container */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #1e1e1e;
+    color: #fff;
+    position: relative;
+}
+
+/* Logo */
+.navbar .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Nav links */
+.navbar .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    /* space between links */
+}
+
+.navbar .nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 0;
+    position: relative;
+    transition: color 0.3s;
+}
+
+.navbar .nav-links li a:hover,
+.navbar .nav-links li a.active {
+    color: #1e90ff;
+}
+
+/* Animated underline effect */
+.navbar .nav-links li a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #1e90ff;
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.navbar .nav-links li a:hover::after,
+.navbar .nav-links li a.active::after {
+    width: 100%;
+}
+
+/* Hamburger button (for mobile) */
+.hamburger {
+    display: none;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Responsive for mobile */
+@media screen and (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        flex-direction: column;
+        background-color: #1e1e1e;
+        width: 200px;
+        display: none;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+}
+
+.nav-links {
+    transition: max-height ease-in-out;
+    overflow: hidden;
+    max-height: 0;
+}
+
+.nav-links.active {
+    max-height: 500px;
+    /* enough to show all items */
+}
+
+/* Mobile nav menu */
+.nav-links {
+    position: absolute;
+    /* stays on top of content */
+    top: 60px;
+    /* adjust to navbar height */
+    right: 0;
+    width: 100%;
+    background-color:#222;
+    /* or black/dark for dark mode */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+/* When active */
+.nav-links.active {
+    max-height: 500px;
+    /* enough to show all items */
+}
+
+/* Make ul vertical on mobile */
+.nav-links li {
+    display: block;
+    padding: 12px 20px;
+}
+
+/* Hamburger visible on small screens only */
+.hamburger {
+    display: block;
+}
+
+
+
+
+
+
 
 /* ---------- FOOTER ---------- */
 
@@ -143,10 +351,25 @@ footer {
 /* ---------- HERO IMAGE ---------- */
 
 .hero-img img {
-    width: 320px;
-    border-radius: 100%;
+    width: 280px;
+    /* size of the circle */
+    height: 280px;
+    /* same as width */
+    object-fit: cover;
+    /* crop to fit circle */
+    border-radius: 50%;
+    /* perfect circle */
     box-shadow: 0 0 15px var(--shadow);
+    display: block;
 }
+
+.hero-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
 
 /* ---------- SERVICES PREVIEW ---------- */
 
@@ -184,31 +407,83 @@ footer {
 }
 
 /* ---------- ABOUT PAGE ---------- */
-
+/* ABOUT SECTION */
 .about {
     display: flex;
-    justify-content: space-between;
-    padding: 60px 8%;
     align-items: center;
+    justify-content: center;
     gap: 40px;
+    /* space between image and text */
+    padding: 50px 20px;
+    flex-wrap: wrap;
+    /* allow wrapping on small screens */
 }
 
 .about-left img {
-    width: 260px;
-    border-radius: 12px;
-    box-shadow: 0 0 12px var(--shadow);
+    width: 320px;
+    /* desktop size */
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+    /* circular image */
+    box-shadow: 0 0 15px var(--shadow);
+}
+
+.about-right {
+    max-width: 600px;
 }
 
 .about-right h1 {
-    font-size: 2.4rem;
+    font-size: 2rem;
     margin-bottom: 15px;
 }
 
 .about-right p {
-    color: var(--text-light);
+    line-height: 1.6;
     margin-bottom: 20px;
-    font-size: 1rem;
-    max-width: 500px;
+}
+
+.about-right .btn-primary {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.about-right .btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* MEDIA QUERY FOR MOBILE */
+@media (max-width: 768px) {
+    .about {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 10px;
+    }
+
+    .about-left img {
+        width: 200px;
+        /* smaller on mobile */
+        margin-bottom: 20px;
+    }
+
+    .about-right {
+        max-width: 100%;
+    }
+
+    .about-right p {
+        text-align: center;
+    }
+
+    .about-right .btn-primary {
+        width: 100%;
+        max-width: 250px;
+        margin: 0 auto;
+    }
 }
 
 /* ---------- EDUCATION ---------- */
@@ -704,6 +979,7 @@ body.dark-mode nav {
     box-shadow: 0 2px 10px rgba(255, 255, 255, 0.08);
 }
 
+
 /* Cards, Forms, and Containers */
 body.dark-mode .card,
 body.dark-mode .service-card,
@@ -966,4 +1242,47 @@ body.dark-mode .card:hover {
 .card:hover {
     transform: translateY(-6px);
     box-shadow: 0 4px 15px var(--shadow);
+}
+
+/* ------- WHAT I DO (HOME PAGE) ------- */
+
+/* Desktop layout */
+.cards {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Each card */
+.card {
+    padding: 25px;
+    background: #fff;
+    border-radius: 12px;
+    width: 280px;
+    /* keeps card clean */
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* MOBILE FIX */
+@media (max-width: 768px) {
+    .cards {
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+    }
+
+    .card {
+        width: 90%;
+        /* prevents long vertical shape */
+        max-width: 320px;
+        /* ensures perfect card size on phones */
+        padding: 20px;
+    }
 }

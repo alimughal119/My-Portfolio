@@ -11,17 +11,19 @@
 <body>
 
     <!-- NAVBAR -->
-    <nav>
+    <nav class="navbar">
         <div class="logo">Ali Tawassul</div>
-        <ul>
+
+        <button class="hamburger" id="hamburger">☰</button>
+
+        <ul id="nav-menu" class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="skills.html">Skills</a></li>
-            <li><a href="service.html">Services</a></li>
-            <li><a href="contact.html" class="active">Contact</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><button id="theme-toggle" class="theme-btn">🌙 Dark Mode</button></li>
         </ul>
-        <button id="theme-toggle" class="theme-btn">🌙 Dark Mode</button>
-
     </nav>
 
     <!-- CONTACT HEADER -->
@@ -61,7 +63,7 @@
 
         <!-- RIGHT SIDE FORM -->
         <div class="contact-form">
-            <form action="https://formspree.io/f/xvgdgadnx" method="POST">
+            <form action="https://formspree.io/f/xqawenkl" method="POST">
                 <input type="text" name="name" placeholder="Your Name" required>
                 <input type="email" name="email" placeholder="Your Email" required>
                 <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
@@ -115,7 +117,28 @@
             alert("📤 Sending your message, please wait...");
             return true;
         }
+        const hamburger = document.getElementById("hamburger");
+        const navLinks = document.getElementById("nav-menu");
+
+        hamburger.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+        });
+        document.addEventListener("click", (e) => {
+            if (navLinks.classList.contains("active") && !navLinks.contains(e.target) && e.target !== hamburger) {
+                navLinks.classList.remove("active");
+            }
+        });
+        const links = navLinks.querySelectorAll("a");
+        const current = window.location.pathname.split("/").pop();
+
+        links.forEach(link => {
+            if (link.getAttribute("href") === current) {
+                link.classList.add("active");
+            }
+        });
+
     </script>
+
 
 
 </body>

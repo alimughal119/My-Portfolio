@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
     <title>Inspire Me Website - Project Details</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -11,14 +13,18 @@
 <body>
 
     <!-- NAVBAR -->
-    <nav>
+    <nav class="navbar">
         <div class="logo">Ali Tawassul</div>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="projects.html" class="active">Projects</a></li>
-        </ul>
-        <button id="theme-toggle" class="theme-btn">🌙 Dark Mode</button>
+        <button class="hamburger" id="hamburger">☰</button>
 
+        <ul id="nav-menu" class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html"></a>Projects</a></li>
+            <li><a href="chess.html">Inspire Me</a></li>
+            <li><a href="inspireme.html">Inspire Me</a></li>
+            <li><a href="portfolio.html">My Portfolio</a></li>
+            <button id="theme-toggle" class="theme-btn">🌙 Dark Mode</button>
+        </ul>
     </nav>
 
     <!-- HEADER -->
@@ -101,6 +107,25 @@
                 toggleBtn.innerHTML = '🌙 Dark Mode';
             }
         };
+        const hamburger = document.getElementById("hamburger");
+        const navLinks = document.getElementById("nav-menu");
+
+        hamburger.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+        });
+        document.addEventListener("click", (e) => {
+            if (navLinks.classList.contains("active") && !navLinks.contains(e.target) && e.target !== hamburger) {
+                navLinks.classList.remove("active");
+            }
+        });
+        const links = navLinks.querySelectorAll("a");
+        const current = window.location.pathname.split("/").pop();
+
+        links.forEach(link => {
+            if (link.getAttribute("href") === current) {
+                link.classList.add("active");
+            }
+        });
     </script>
 
 </body>

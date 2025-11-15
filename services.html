@@ -11,19 +11,20 @@
 <body>
 
     <!-- NAVBAR -->
-    <nav>
+    <nav class="navbar">
         <div class="logo">Ali Tawassul</div>
-        <ul>
+
+        <button class="hamburger" id="hamburger">☰</button>
+
+        <ul id="nav-menu" class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="skills.html">Skills</a></li>
-            <li><a href="service.html" class="active">Services</a></li>
+            <li><a href="services.html">Services</a></li>
             <li><a href="contact.html">Contact</a></li>
+            <li><button id="theme-toggle" class="theme-btn">🌙 Dark Mode</button></li>
         </ul>
-        <button id="theme-toggle" class="theme-btn">🌙 Dark Mode</button>
-
     </nav>
-
     <!-- SERVICES HEADER -->
     <section class="services-header">
         <h1>My Services</h1>
@@ -105,6 +106,26 @@
                 toggleBtn.innerHTML = '🌙 Dark Mode';
             }
         };
+        const hamburger = document.getElementById("hamburger");
+        const navLinks = document.getElementById("nav-menu");
+
+        hamburger.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+        });
+        document.addEventListener("click", (e) => {
+            if (navLinks.classList.contains("active") && !navLinks.contains(e.target) && e.target !== hamburger) {
+                navLinks.classList.remove("active");
+            }
+        });
+
+        const links = navLinks.querySelectorAll("a");
+        const current = window.location.pathname.split("/").pop();
+
+        links.forEach(link => {
+            if (link.getAttribute("href") === current) {
+                link.classList.add("active");
+            }
+        });
     </script>
 
 

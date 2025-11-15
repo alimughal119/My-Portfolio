@@ -11,16 +11,21 @@
 <body>
 
     <!-- NAVBAR -->
-    <nav>
+    <nav class="navbar">
         <div class="logo">Ali Tawassul</div>
-        <ul>
+        <button class="hamburger" id="hamburger">☰</button>
+
+        <ul id="nav-menu" class="nav-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="projects.html" class="active">Projects</a></li>
+            <li><a href="projects.html"> Projects </a></li>
+            <li><a href="chess.html"> Chess</a></li>
+            <li><a href="inspireme.html">Inspire Me </a></li>
+            <li><a href="portfolio.html">My Portfolio</a></li>
+            <button id="theme-toggle" class="theme-btn">🌙 Dark Mode</button>
         </ul>
-        <button id="theme-toggle" class="theme-btn">🌙 Dark Mode</button>
+
 
     </nav>
-
     <!-- PROJECT HEADER -->
     <section class="project-details">
 
@@ -106,7 +111,42 @@
             } else {
                 toggleBtn.innerHTML = '🌙 Dark Mode';
             }
+
+            // Ensure nav menu is closed on page load
+            navLinks.classList.remove("active");
         };
+
+        // Hamburger toggle
+        const hamburger = document.getElementById("hamburger");
+        const navLinks = document.getElementById("nav-menu");
+
+        hamburger.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener("click", (e) => {
+            // Close nav if click is outside navLinks and hamburger
+            if (
+                navLinks.classList.contains("active") &&
+                !e.target.closest("#nav-menu") &&
+                !e.target.closest("#hamburger")
+            ) {
+                navLinks.classList.remove("active");
+            }
+        });
+
+
+        // Highlight current page
+        const links = navLinks.querySelectorAll("a");
+        const current = window.location.pathname.split("/").pop();
+
+        links.forEach(link => {
+            if (link.getAttribute("href") === current) {
+                link.classList.add("active");
+            }
+        });
+
     </script>
 
 </body>
