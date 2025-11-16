@@ -297,10 +297,11 @@ footer {
     justify-content: space-between;
     align-items: center;
     padding: 60px 8%;
+    gap: 40px;
 }
 
 .hero-text {
-    max-width: 55%;
+    flex: 1;
 }
 
 .hero-text h1 {
@@ -473,16 +474,35 @@ footer {
 
 /* MEDIA QUERY FOR MOBILE */
 @media (max-width: 768px) {
-    .hero {
-        flex-direction: column;
-        text-align: center;
+    body {
         overflow-x: hidden;
     }
 
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 5%;
+    }
+
     .hero-img img {
-        max-width: 200px;
-        margin: 20px auto;
-        display: block;
+        width: 65%;
+        max-width: 260px;
+        border-radius: 50%;
+    }
+
+
+    .hero-img {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        /* centers image horizontally */
+        margin-top: 20px;
+    }
+
+
+    .hero-text {
+        width: 100%;
+        text-align: center;
     }
 
     .about {
