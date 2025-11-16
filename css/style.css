@@ -1,6 +1,12 @@
 /* ---------- HERO SECTION ---------- */
 
 /* ---------- GLOBAL STYLES ---------- */
+html,
+body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
 
 :root {
     --primary: #1E90FF;
@@ -244,7 +250,7 @@ body.dark-mode nav ul li a {
     /* adjust to navbar height */
     right: 0;
     width: 100%;
-    background-color:#222;
+    background-color: #222;
     /* or black/dark for dark mode */
     max-height: 0;
     overflow: hidden;
@@ -316,6 +322,14 @@ footer {
     font-size: 1rem;
     margin: 15px 0 25px;
     color: var(--text-light);
+}
+
+.hero-img img {
+    width: 100%;
+    max-width: 230px;
+    /* smaller for mobile */
+    border-radius: 100%;
+    box-shadow: 0 0 15px var(--shadow);
 }
 
 .buttons {
@@ -459,6 +473,18 @@ footer {
 
 /* MEDIA QUERY FOR MOBILE */
 @media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        overflow-x: hidden;
+    }
+
+    .hero-img img {
+        max-width: 200px;
+        margin: 20px auto;
+        display: block;
+    }
+
     .about {
         flex-direction: column;
         text-align: center;
